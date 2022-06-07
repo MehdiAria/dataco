@@ -1,5 +1,7 @@
 from django.urls import path
 
+from myapp.views import CompanyListView
+
 urlpatterns = [
-    path('', '', name='index-page')
+    path('list/', CompanyListView.as_view(), name='index-page')
 ]
