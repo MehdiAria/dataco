@@ -36,7 +36,6 @@ class CompanyListAPIView(ListAPIView):
     queryset = Company.objects.all()
     pagination_class = CustomNumberPagination
     permission_classes = [IsAuthenticated]
-    # authentication_classes = [SessionAuthentication, BasicAuthentication]
 
 # TODO
 # class EsgDetailsView(DetailView):
