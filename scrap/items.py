@@ -5,8 +5,9 @@
 
 import scrapy
 
+from scrapy_djangoitem import DjangoItem
+from myapp.models import Company
 
-class ScrapItem(scrapy.Item):
-    # define the fields for your item here like:
-    # name = scrapy.Field()
-    pass
+
+class ScraperItem(DjangoItem):
+    django_model = Company
