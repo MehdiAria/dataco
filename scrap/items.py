@@ -9,5 +9,5 @@ from scrapy_djangoitem import DjangoItem
 from myapp.models import Company
 
 
-class ScraperItem(DjangoItem):
+class ScrapItem(DjangoItem):
     django_model = Company
