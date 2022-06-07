@@ -3,6 +3,7 @@ from django.shortcuts import render
 # Create your views here.
 from django.shortcuts import render
 from django.views.generic import ListView
+from rest_framework.generics import ListAPIView
 
 from myapp.models import Company
 
@@ -16,3 +17,7 @@ class CompanyListView(ListView):
         company_list = Company.objects.all()
         context = {'company_list': company_list}
         return render(request, 'company_list.html', context=context)
+
+
+class CompanyListAPIView(ListAPIView):
+    ...
