@@ -2,7 +2,7 @@ from django.shortcuts import render
 
 # Create your views here.
 from django.shortcuts import render
-from django.views.generic import ListView
+from django.views.generic import ListView, DetailView
 from rest_framework.generics import ListAPIView
 from rest_framework.pagination import PageNumberPagination
 
@@ -11,6 +11,7 @@ from myapp.serializer import CompanySerializer
 
 
 class CompanyListView(ListView):
+    """View to list all companies"""
     model = Company
     queryset = Company.objects.all()
     context_object_name = 'items'
@@ -22,10 +23,17 @@ class CompanyListView(ListView):
 
 
 class CustomNumberPagination(PageNumberPagination):
+    """Custom pagination"""
     page_size = 10
 
 
 class CompanyListAPIView(ListAPIView):
+    """List API view"""
     serializer_class = CompanySerializer
     queryset = Company.objects.all()
     pagination_class = CustomNumberPagination
+
+# TODO
+# class EsgDetailsView(DetailView):
+#     model = Esg
+#     template_name = 'esg_detail.html'

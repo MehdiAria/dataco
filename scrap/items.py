@@ -10,4 +10,5 @@ from myapp.models import Company
 
 
 class ScrapItem(DjangoItem):
+    """ItemAdapter for scrapy"""
     django_model = Company

@@ -3,6 +3,7 @@ from ..items import ScrapItem
 
 
 class EsgSpider(scrapy.Spider):
+    """Spider to crawl companyName data"""
     name = 'esg'
     allowed_domains = ['www.refinitiv.com']
     start_urls = ['https://www.refinitiv.com/bin/esg/esgsearchsuggestions']

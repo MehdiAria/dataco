@@ -7,6 +7,7 @@ from scrap.spiders.company import EsgSpider
 
 
 class Command(BaseCommand):
+    """Command to run scrapy"""
     help = 'Release spider'
 
     def handle(self, *args, **options):
