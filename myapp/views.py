@@ -3,8 +3,11 @@ from django.shortcuts import render
 # Create your views here.
 from django.shortcuts import render
 from django.views.generic import ListView, DetailView
+from rest_framework import permissions
+from rest_framework.authentication import SessionAuthentication, BasicAuthentication
 from rest_framework.generics import ListAPIView
 from rest_framework.pagination import PageNumberPagination
+from rest_framework.permissions import IsAuthenticated
 
 from myapp.models import Company
 from myapp.serializer import CompanySerializer
@@ -28,10 +31,12 @@ class CustomNumberPagination(PageNumberPagination):
 
 
 class CompanyListAPIView(ListAPIView):
-    """List API view"""
+    """List API view with authentication"""
     serializer_class = CompanySerializer
     queryset = Company.objects.all()
     pagination_class = CustomNumberPagination
+    permission_classes = [IsAuthenticated]
+    # authentication_classes = [SessionAuthentication, BasicAuthentication]
 
 # TODO
 # class EsgDetailsView(DetailView):
