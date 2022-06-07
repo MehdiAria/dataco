@@ -6,6 +6,7 @@ from django.views.generic import ListView
 from rest_framework.generics import ListAPIView
 
 from myapp.models import Company
+from myapp.serializer import CompanySerializer
 
 
 class CompanyListView(ListView):
@@ -20,4 +21,5 @@ class CompanyListView(ListView):
 
 
 class CompanyListAPIView(ListAPIView):
-    ...
+    serializer_class = CompanySerializer
+    queryset = Company.objects.all()
