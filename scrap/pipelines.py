@@ -24,14 +24,14 @@ class ScrapPipeline(object):
         self.create_table()
 
     def create_connection(self):
-        self.cnt = sqlite3.connect('dataco.db')
+        self.cnt = sqlite3.connect('db.sqlite3')
         self.cur = self.cnt.cursor()
 
     def create_table(self):
-        self.cur.execute("""CREATE TABLE IF NOT EXISTS company (companyName textl,ricCode text)""")
+        self.cur.execute("""CREATE TABLE IF NOT EXISTS myapp_company (companyName textl,ricCode text)""")
 
     def store_data(self, item):
-        self.cur.execute("""INSERT INTO company (companyName,ricCode)VALUES(?,?);""",
+        self.cur.execute("""INSERT INTO myapp_company (companyName,ricCode)VALUES(?,?);""",
                          (item['companyName'], item['ricCode']))
         self.cnt.commit()
 
