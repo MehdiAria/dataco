@@ -19,7 +19,7 @@ class Esg(models.Model):
     governance = models.CharField(max_length=5, null=False)
     rank = models.CharField(max_length=5, null=False)
     total = models.CharField(max_length=5, null=False)
-    ricCode = models.CharField(max_length=5, null=False)
+    ricCode = models.SlugField(null=False, unique=True)
 
     def __str__(self):
         """Returns a string representation of the model"""
