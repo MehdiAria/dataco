@@ -1,4 +1,6 @@
 import scrapy
+import slug as slug
+from django.utils.text import slugify
 from scrapy import FormRequest
 from scrapy.spiders import CrawlSpider
 from scrapy import Request
@@ -34,7 +36,7 @@ class EsgSpider(scrapy.Spider):
         governance = a['esgScore']['TR.GovernancePillar']['score']
         rank = a['industryComparison']['rank']
         total = a['industryComparison']['totalIndustries']
-        code = response.url[58:]
+        code = slugify(response.url[58:])
         data['esg'] = esg
         data['environment'] = environment
         data['social'] = social
