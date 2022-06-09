@@ -6,9 +6,14 @@
 import scrapy
 
 from scrapy_djangoitem import DjangoItem
-from myapp.models import Company
+from myapp.models import Company, Esg
 
 
 class ScrapItem(DjangoItem):
     """ItemAdapter for scrapy"""
     django_model = Company
+
+
+class EsgItem(DjangoItem):
+    """ItemAdapter for scrapy"""
+    django_model = Esg
